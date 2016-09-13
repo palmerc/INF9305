@@ -1,4 +1,4 @@
-function [H, theta_maximum, theta_range, rho_maximum, rho_range] = RandomHough(I, line_threshold, maximum_iterations)
+function [lines_matrix, rho_theta_matrix, theta_maximum, theta_range, rho_maximum, rho_range] = RandomHough(I, line_threshold, maximum_iterations)
 %RANDOMHOUGH Uses the randomized version of the Hough transform to find
 %lines.
 %Algorithm - lines
@@ -24,13 +24,18 @@ function [H, theta_maximum, theta_range, rho_maximum, rho_range] = RandomHough(I
     iteration = 0;
 
     [image_rows, image_cols] = size(I);
+
     % Step 3
-    [H, theta_maximum, theta_range, rho_maximum, rho_range] = HoughMatrix(image_rows, image_cols);
-    H_bookkeeping = H;
+    [rho_theta_matrix, theta_maximum, theta_range, rho_maximum, rho_range] = HoughMatrix(image_rows, image_cols);
+    lines_matrix = rho_theta_matrix;
+    rho_theta_bookkeeping = rho_theta_matrix;
+    
     while iteration < maximum_iterations
         points = RandomPoints(I, 2); % Step 4
-        H_bookkeeping = H_bookkeeping + HoughPoints(I, points); % Step 5/6
-        [candidate_rows, candidate_cols] = find(H_bookkeeping > line_threshold); % Step 7
+        points_hough = HoughPoints(I, points); % Step 5/6
+        rho_theta_bookkeeping = rho_theta_bookkeeping + points_hough;
+        rho_theta_matrix = rho_theta_matrix + points_hough;
+        [candidate_rows, candidate_cols] = find(rho_theta_bookkeeping > line_threshold); % Step 7
         for i = 1:size(candidate_rows, 1)
             rho_index = candidate_rows(i);
             theta_index = candidate_cols(i);
@@ -43,8 +48,8 @@ function [H, theta_maximum, theta_range, rho_maximum, rho_range] = RandomHough(I
                         % Step 8
                         row = y;
                         col = x;
-                        H_bookkeeping(rho_index, theta_index) = 0;
-                        H(rho_index, theta_index) = H(rho_index, theta_index) + 1;
+                        rho_theta_bookkeeping(rho_index, theta_index) = 0;
+                        lines_matrix(rho_index, theta_index) = lines_matrix(rho_index, theta_index) + 1;
                         I(row, col) = 0;
                     end
                 end

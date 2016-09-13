@@ -1,10 +1,10 @@
-function [ Hough, theta_range, rho_range ] = HoughPoints(varargin)
+function [ rho_theta_matrix, theta_range, rho_range ] = HoughPoints(varargin)
 %HOUGHCLP performs the Hough transform in a straightforward way.
 %   
     [I, points] = ParseInputs(varargin{:});
     [rows, cols] = size(I);
 
-    [Hough, theta_maximum, theta_range, rho_maximum, rho_range] = HoughMatrix(rows, cols);
+    [rho_theta_matrix, theta_maximum, theta_range, rho_maximum, rho_range] = HoughMatrix(rows, cols);
     
     for point_index = 1:size(points, 2)
         point = points(:,point_index);
@@ -17,7 +17,7 @@ function [ Hough, theta_range, rho_range ] = HoughPoints(varargin)
                 rho = round((x * cosd(theta)) + (y * sind(theta)));                   
                 rho_index = rho + rho_maximum + 1;
                 theta_index = theta + theta_maximum + 1;
-                Hough(rho_index, theta_index) = Hough(rho_index, theta_index) + 1;
+                rho_theta_matrix(rho_index, theta_index) = rho_theta_matrix(rho_index, theta_index) + 1;
             end
         end
     end

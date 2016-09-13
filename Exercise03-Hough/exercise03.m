@@ -7,27 +7,34 @@ RGB = imread('corridor.png');
 gray = rgb2gray(RGB);
  
 figure(100);
-subplot(211), imshow(RGB), title('Original');
+subplot(221), imshow(RGB), title('Original');
  
 h1 = fspecial('sobel');
 h2 = h1';
 igh = imfilter(gray, h1);
 igv = imfilter(gray, h2);
-sobel = abs(igh) + abs(igv);
-subplot(212), imshow(sobel, []), title('Sobel');
+sobel_thresholded = abs(igh) + abs(igv);
+subplot(222), imshow(sobel_thresholded, []), title('Sobel thresholded');
  
-sobel_thresholded = sobel > 170;
-figure(2);
-imshow(sobel_thresholded, []), title('Sobel thresholded');
-hold on
+sobel_thresholded = sobel_thresholded > 170;
  
 tic;
 line_threshold = 20;
 max_iterations = 1000;
-[H, theta_max, theta_range, rho_max, rho_range] = RandomHough(sobel_thresholded, line_threshold, max_iterations);
+[lines_matrix, rho_theta_matrix, theta_max, theta_range, rho_max, rho_range] = RandomHough(sobel_thresholded, line_threshold, max_iterations);
 toc;
+
+ax1 = subplot(223); 
+imagesc(theta_range,rho_range,rho_theta_matrix);
+xlabel('\theta');
+ylabel('\rho');
+colormap(ax1, 'jet'); 
+title('Rho-Theta Matrix');
+
+subplot(224); imshow(sobel_thresholded, []), title('Randomized Hough - lines');
+hold on
  
-[rows, cols] = find(H>0);
+[rows, cols] = find(lines_matrix>0);
 for i = 1:numel(rows)
     rho = rho_range(rows(i));
     theta = theta_range(cols(i));
@@ -35,8 +42,6 @@ for i = 1:numel(rows)
     y = round((rho - x * cosd(theta)) / sind(theta));
     plot(x, y, 'r-');
 end
- 
-
 
 %% Naive version
 
@@ -67,7 +72,7 @@ rho_maximum = floor(sqrt(rows^2 + cols^2)) - 1;
 theta_range = -theta_maximum:theta_maximum - 1;
 rho_range = -rho_maximum:rho_maximum;
 
-rho_theta_matrix = zeros(length(rho_range), length(theta_range));
+lines_matrix = zeros(length(rho_range), length(theta_range));
 
 wb = waitbar(0, 'Naive Hough Transform');
 
@@ -81,7 +86,7 @@ for row = 1:rows
                 rho_ = round((x * cosd(theta)) + (y * sind(theta)));
                 rho_index = rho_ + rho_maximum + 1;
                 theta_index = theta + theta_maximum + 1;
-                rho_theta_matrix(rho_index, theta_index) = rho_theta_matrix(rho_index, theta_index) + 1;
+                lines_matrix(rho_index, theta_index) = lines_matrix(rho_index, theta_index) + 1;
             end
         end
     end
@@ -89,4 +94,12 @@ end
 
 figure(200)
 ax1 = subplot(211); imshow(thresholded_image); title('Thresholded Sobel Image')
-ax2 = subplot(212); imagesc(theta_range,rho_range,rho_theta_matrix); colormap(ax2, 'jet'); title('Rho-Theta Matrix')
+
+ax2 = subplot(212); 
+imagesc(theta_range,rho_range,lines_matrix);
+xlabel('\theta');
+ylabel('\rho');
+colormap(ax2, 'jet'); 
+title('Rho-Theta Matrix');
+
+close(wb);
