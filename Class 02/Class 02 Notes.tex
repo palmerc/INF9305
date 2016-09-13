@@ -1,0 +1,170 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.0in]{geometry}
+
+\title{Texture}
+\author{Cameron Lowell Palmer}
+\begin{document}
+\maketitle
+\section{What is a texture?}
+
+Everyday texture terms - rough, silky, bumpy - refer to touch.
+
+A texture that is rough to touch has:
+
+a large difference between high and low points, and a space between highs and lows approximately the same size as a finger.
+
+Silky would have little difference between high and low points, and the differences would be spaced very close together relative to finger size.
+
+Image texture works in the same way, except the highs and lows are brightness values (also called grey levels, GL,  or digital numbers, DN) instead of elevation changes. Instead of probing a finger over the surface, a "window" - a (usually square) box defining the size of the probe - is used. 
+ 
+Textures in images quantify:
+\begin{itemize}
+	\item Grey level differences (contrast)
+	\item Defined size of area where change occurs (window)
+	\item Directionality or lack of it
+\end{itemize}
+
+\section{The GLCM Algorithm}
+
+\subsection{Pre-processing}
+\begin{itemize}
+	\item Equalize histogram
+	\item Reduce number of gray levels
+	\item Choose a step and direction (offset)
+	\item Decide how we want to deal with edges
+\end{itemize}
+
+For each reference pixel check the neighbor and tabulate the number of occurrences. To make the GLCM symmetric you should add the transpose of the matrix to itself. So for example the number of occurrences at 4,3 is the same as at 3,4.
+
+You also want to 'normalize' the GLCM by dividing each value by the sum of all the values. This will leave you what can be described a table of probabilities regarding the relationship between the reference and neighbor pixels.
+
+\subsection{Sliding Window extension}
+Taking the basic GLCM algorithm and extending it to a sliding window allows you to apply various weighting functions locally instead of globally to the image. We take an odd-sized window centered on the pixel of interest and perform the GLCM on that window. When complete we use the resulting GLCM with the weighting function to generate a value that goes into our resulting feature image. We repeat this process for each pixel in the image.
+
+\subsection{Weighting Functions}
+You can say that they fall into two general categories, position-based and value-based categories. That is features derived from the position within the GLCM vs. the value of the GLCM element.
+
+Another way is to group by function
+1. Contrast group: Measures related to contrast use weights related to the distance from the GLCM diagonal.
+
+2. Measures related to orderliness
+
+3. Group using descriptive statistics of the GLCM texture measures
+
+
+
+	What is a texel? - a texture element can be defined at any image scale. No specific number of pixels is necessarily a texel so it is a bit subjective.
+			
+	\subsection{Uses for texture analysis}
+	We can get shape from a texture.
+	
+	If we can characterize an interior or exterior we can compress the image with less information.
+	
+	Industrial inspection - find defects in materials.
+	
+	Can be used for cancer prognostics - has a small set of differentiating textual features.
+	
+	\subsection{Features}
+	Edges can sometimes give the complete perimeter of an object.
+	
+	If you have a homogeneous region within that border it might be useful for describing the contents of the region
+	
+	The texture of a sliding window describes how the gray levels in a window varies. Roughness, regularity, smoothness, contrast, etc.
+	
+	\subsection{A simple approach to texture}
+	To be able to find changes in the texture of an image, a simple strategy is to perform texture measurements in a sliding window.
+	
+	Image boundaries can cause artifacts.
+	
+	\subsection{Computing texture images}
+	Select a window size and select a texture feature (not easy). Feature selection depends possibly on orientation.
+	Similar to filtering
+	
+	The whole basis of the Fourier transform is a window into the notion that everything is repeated over and over again.
+	
+	\subsection{Zebra hunting}
+	For each pixel compute a local homogeneity in a sliding window.
+	
+	First we want to isolate or segment regions and later we want to classify them.
+	
+	Describe the texture of a region - smoothness roughness regularity.
+	\begin{itemize}
+		\item Large window precise estimate of features, imprecise location
+		\item Small window precise location, imprecise estimate of feature values.
+	\end{itemize}
+	
+	Related to physics - Heisenbergs uncertainty relation.
+	
+	\subsection{Texture description is scale dependent}
+	What is our goal? because scale impacts the choice of texels and vice versa.
+	
+	The curtain image can be zoomed in on and you receive very different texels.
+	
+	The monkey with the nose - variance with two different windows results in very different depending on window size.
+	
+	\subsection{Statistical texture description}
+	First order statistics from gray level intensity histogram. Mean, variance, 3. 4. order moment
+	
+	Co-occurence matrix introduced.
+	
+	\subsection{First order statistics}
+	Mean value within a window might be useful for segmentation but isn't useful as a texture feature. Histogram.
+	Variance is a much more credible feature.
+	Skewness - light / dark average.
+	Kurtosis
+	
+	Entropy - how uniform is the gray level distribution
+	Energy - how non-uniform is the gray level distribution
+	
+	\subsection{Variance}
+	Variance is a measure of roughness
+	A measure of smoothness 0 < R < 1
+	
+	Coefficient of variation
+	CV is intensity scale invariant
+	
+	Use median instead of the mean is an alternative. Using the bits.
+	
+	Negative skew - positive skew. measure of asymmetry.
+	
+	\subsection{Entropy}
+	How uniform is the gray level distribution
+	All pixels the same entropy is 0
+	Entropy would be equal to the number of bits if every pixel value is equally probable.
+	
+	\subsection{Energy}
+	A measure of homogeneity - how non-uniform
+	
+	1. order stats can separate two regions. Edges are exaggerated. cannot describe geometry or context
+	Using different resolutions you can obtain indirect information about 2. and higher order statistics.
+	
+	\subsection{Second order statistics}
+	GLCM intensity change histograms.
+	
+	Matrix element $P(i,j)$ in a GLCM is 2. order probability of changing from gray-level i to j when moving a distance d in the direction $\theta$ of the image, or equivalent, $(\Delta x, \Delta y)$
+	
+	The dimension of the co-occurence matix is the same size as the number of gray-levels. $G x G$ It essentially logs the transitions from a gray-level to a gray-level. Must have an average occupancy level. We sometimes need to re-quantize the image and thereby reduce the GLCM size. 16 gray-levels is usually sufficient.
+	
+	Using this tool in 2 directions can give very different answers. However it is important to keep the number of directions checked low.
+	
+	Symmetric GLCM count forwards and backwards. Isotropic is created by averaging all directions.
+	
+	If the texture has a clear orientation we should select $\theta$ accordingly.
+	
+	Isotropic example - brick wall, sand. things lying on the diagonal but with a good spread around it.
+	
+	\subsection{How to use the GLCM}
+	Haralick came up with roughly 20 different features to extract in the 70s. Roughly 20-25 different feature can be extracted. Probably never use more than 4-5 at a time since they are strongly correlated. You might need to evaluate several distances. Optimal set is problem dependent, so there is no optimal set.
+	
+	Good idea to preprocess using a histogram transform is a good idea generally. If you force the histogram to be Gaussian is removing information but changing the average or median value can help.
+	
+	Sometimes we want to make the features rotation invariant by using isotropic.
+	
+	By varying the weighting function we can get different types of information. Value-based vs. Position based.
+	
+	\subsection{Curse of dimensionality}
+	Find a subset of observed features. More features leads to worse results.
+	
+	Mahalanobis distance. The distance of the uncertainty average. 2D co-occurence matrices are almost not used. 
+\end{document}
