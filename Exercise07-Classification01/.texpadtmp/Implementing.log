@@ -1,0 +1,363 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.8.3)  8 NOV 2015 12:42
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**Implementing.tex
+(./Implementing.tex
+LaTeX2e <2014/05/01>
+Babel <3.9k> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen111
+\captionmargin@=\dimen112
+\captionwidth=\dimen113
+\caption@tempdima=\dimen114
+\caption@indent=\dimen115
+\caption@parindent=\dimen116
+\caption@hangindent=\dimen117
+)
+\c@ContinuedFloat=\count91
+)
+\c@subfigure=\count92
+\c@subtable=\count93
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+ (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count94
+))
+\Gin@req@height=\dimen118
+\Gin@req@width=\dimen119
+) (/Users/palmerc/Development/Academic/INF9305 Digital Analysis/Exercise 07/.texpadtmp/Implementing.aux)
+\openout1 = `Implementing.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+(/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count95
+\scratchdimen=\dimen120
+\scratchbox=\box26
+\nofMPsegments=\count96
+\nofMParguments=\count97
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count98
+\MPscratchDim=\dimen121
+\MPnumerator=\count99
+\makeMPintoPDFobject=\count100
+\everyMPtoPDFconversion=\toks17
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+ (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+)) (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+ (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+ (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 9.
+
+
+LaTeX Warning: No \author given.
+
+[1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] <TrainingMask.png, id=8, 578.16pt x 433.62pt>
+File: TrainingMask.png Graphic file (type png)
+ <use TrainingMask.png>
+Package pdftex.def Info: TrainingMask.png used on input line 23.
+(pdftex.def)             Requested size: 341.43307pt x 256.07178pt.
+ <Landsat1.png, id=9, 578.16pt x 433.62pt>
+File: Landsat1.png Graphic file (type png)
+ <use Landsat1.png>
+Package pdftex.def Info: Landsat1.png used on input line 35.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 37.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 37.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 37.
+ <Landsat2.png, id=10, 578.16pt x 433.62pt>
+File: Landsat2.png Graphic file (type png)
+ <use Landsat2.png>
+Package pdftex.def Info: Landsat2.png used on input line 40.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 33--43
+[]$[]$ $[]$ 
+ []
+
+<Landsat3.png, id=11, 578.16pt x 433.62pt>
+File: Landsat3.png Graphic file (type png)
+ <use Landsat3.png>
+Package pdftex.def Info: Landsat3.png used on input line 47.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+ <Landsat4.png, id=12, 578.16pt x 433.62pt>
+File: Landsat4.png Graphic file (type png)
+ <use Landsat4.png>
+Package pdftex.def Info: Landsat4.png used on input line 52.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 45--55
+[]$[]$ $[]$ 
+ []
+
+<Landsat5.png, id=13, 578.16pt x 433.62pt>
+File: Landsat5.png Graphic file (type png)
+ <use Landsat5.png>
+Package pdftex.def Info: Landsat5.png used on input line 59.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+ <Landsat6.png, id=14, 578.16pt x 433.62pt>
+File: Landsat6.png Graphic file (type png)
+ <use Landsat6.png>
+Package pdftex.def Info: Landsat6.png used on input line 64.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 57--67
+[]$[]$ $[]$ 
+ []
+
+[1 <./TrainingMask.png (PNG copy)>] [2 <./Landsat1.png (PNG copy)> <./Landsat2.png (PNG copy)> <./Landsat3.png (PNG copy)> <./Landsat4.png (PNG copy)> <./Landsat5.png (PNG copy)> <./Landsat6.png (PNG copy)>] <Feature1ProbabilityDistribution.png, id=25, 578.16pt x 433.62pt>
+File: Feature1ProbabilityDistribution.png Graphic file (type png)
+ <use Feature1ProbabilityDistribution.png>
+Package pdftex.def Info: Feature1ProbabilityDistribution.png used on input line 85.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+ <Feature2ProbabilityDistribution.png, id=26, 578.16pt x 433.62pt>
+File: Feature2ProbabilityDistribution.png Graphic file (type png)
+ <use Feature2ProbabilityDistribution.png>
+Package pdftex.def Info: Feature2ProbabilityDistribution.png used on input line 90.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 83--93
+[]$[]$ $[]$ 
+ []
+
+<Feature3ProbabilityDistribution.png, id=27, 578.16pt x 433.62pt>
+File: Feature3ProbabilityDistribution.png Graphic file (type png)
+ <use Feature3ProbabilityDistribution.png>
+Package pdftex.def Info: Feature3ProbabilityDistribution.png used on input line 97.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+ <Feature4ProbabilityDistribution.png, id=28, 578.16pt x 433.62pt>
+File: Feature4ProbabilityDistribution.png Graphic file (type png)
+ <use Feature4ProbabilityDistribution.png>
+Package pdftex.def Info: Feature4ProbabilityDistribution.png used on input line 102.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 95--105
+[]$[]$ $[]$ 
+ []
+
+<Feature5ProbabilityDistribution.png, id=29, 578.16pt x 433.62pt>
+File: Feature5ProbabilityDistribution.png Graphic file (type png)
+ <use Feature5ProbabilityDistribution.png>
+Package pdftex.def Info: Feature5ProbabilityDistribution.png used on input line 109.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+ <Feature6ProbabilityDistribution.png, id=30, 578.16pt x 433.62pt>
+File: Feature6ProbabilityDistribution.png Graphic file (type png)
+ <use Feature6ProbabilityDistribution.png>
+Package pdftex.def Info: Feature6ProbabilityDistribution.png used on input line 114.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 107--117
+[]$[]$ $[]$ 
+ []
+
+[3 <./Feature1ProbabilityDistribution.png (PNG copy)> <./Feature2ProbabilityDistribution.png (PNG copy)> <./Feature3ProbabilityDistribution.png (PNG copy)> <./Feature4ProbabilityDistribution.png (PNG copy)>] <Feature1ClassificationResult.png, id=39, 578.16pt x 433.62pt>
+File: Feature1ClassificationResult.png Graphic file (type png)
+ <use Feature1ClassificationResult.png>
+Package pdftex.def Info: Feature1ClassificationResult.png used on input line 130.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+ <Feature2ClassificationResult.png, id=40, 578.16pt x 433.62pt>
+File: Feature2ClassificationResult.png Graphic file (type png)
+ <use Feature2ClassificationResult.png>
+Package pdftex.def Info: Feature2ClassificationResult.png used on input line 135.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 128--138
+[]$[]$ $[]$ 
+ []
+
+<Feature3ClassificationResult.png, id=41, 578.16pt x 433.62pt>
+File: Feature3ClassificationResult.png Graphic file (type png)
+ <use Feature3ClassificationResult.png>
+Package pdftex.def Info: Feature3ClassificationResult.png used on input line 142.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+ <Feature4ClassificationResult.png, id=42, 578.16pt x 433.62pt>
+File: Feature4ClassificationResult.png Graphic file (type png)
+ <use Feature4ClassificationResult.png>
+Package pdftex.def Info: Feature4ClassificationResult.png used on input line 147.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 140--150
+[]$[]$ $[]$ 
+ []
+
+<Feature5ClassificationResult.png, id=43, 578.16pt x 433.62pt>
+File: Feature5ClassificationResult.png Graphic file (type png)
+ <use Feature5ClassificationResult.png>
+Package pdftex.def Info: Feature5ClassificationResult.png used on input line 154.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+ <Feature6ClassificationResult.png, id=44, 578.16pt x 433.62pt>
+File: Feature6ClassificationResult.png Graphic file (type png)
+ <use Feature6ClassificationResult.png>
+Package pdftex.def Info: Feature6ClassificationResult.png used on input line 159.
+(pdftex.def)             Requested size: 227.62206pt x 170.71231pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 152--162
+[]$[]$ $[]$ 
+ []
+
+[4 <./Feature5ProbabilityDistribution.png (PNG copy)> <./Feature6ProbabilityDistribution.png (PNG copy)> <./Feature1ClassificationResult.png (PNG copy)> <./Feature2ClassificationResult.png (PNG copy)>] [5 <./Feature3ClassificationResult.png (PNG copy)> <./Feature4ClassificationResult.png (PNG copy)> <./Feature5ClassificationResult.png (PNG copy)> <./Feature6ClassificationResult.png (PNG copy)>] (/Users/palmerc/Development/Academic/INF9305 Digital Analysis/Exercise 07/.texpadtmp/Implementing.aux) ) 
+Here is how much of TeX's memory you used:
+ 3183 strings out of 493117
+ 52026 string characters out of 6135434
+ 109670 words of memory out of 5000000
+ 6618 multiletter control sequences out of 15000+600000
+ 8801 words of font info for 31 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 42i,8n,40p,638b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on "/Users/palmerc/Development/Academic/INF9305 Digital Analysis/Exercise 07/.texpadtmp/Implementing.pdf" (6 pages, 1352571 bytes).
+PDF statistics:
+ 86 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
+

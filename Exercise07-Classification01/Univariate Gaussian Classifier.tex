@@ -1,0 +1,50 @@
+\documentclass[11pt]{report}
+\usepackage{amsfonts,caption}
+\title{Univariate Gaussian Classifier}
+\author{Ole Marius Hoel Rindal \\ omrindal@ifi.uio.no}
+
+\begin{document}
+\maketitle
+Some notation; We have a feature $x$ and a set $\{w_1, w_2, ..., w_j\}$ of $j$ classes. In the univariate case, $x$ is one dimensional, $x \in \mathbb{R}$.
+
+According to Bayes rule, the posterior probability for class $j$ can be computed as 
+\begin{equation}
+	P(w_j|x) = \frac{P(x|w_j)P(w_j)}{P(x)}
+\end{equation}
+where 
+\begin{equation}
+	P(x) = \sum_{j=1} P(x|w_j)P(w_j)
+\end{equation}
+and $P(w_j)$ is the a priori probability. A priori probability means the probability given in advance. For example, if we have two classes $w_1$ and $w_2$ and we know that it has a 75\% chance of getting class $w_1$ and 25\% chance of getting class $w_2$ we have $P(w_1) = 0.75$ and $P(w_2) = 0.25$.
+
+We want to classify a feature $x$ to the class with the highest posterior probability. That is decide $w_i$ if $P(w_i|x) \geq P(w_j|x)$ for all $j \neq i$.
+
+This can be written as I classify $x$ as $w_i$ if $g_i(x) \geq g_j(x)$, where possible discriminant functions are:
+\begin{equation}
+	g_i(x) = P(w_i|x) = \frac{P(x|w_i)P(w_i)}{P(x)}
+\end{equation}
+or
+\begin{equation}
+	g_i(x) = P(x|w_i)P(w_i)
+\end{equation}
+or
+\begin{equation}
+	g_i(x) = \ln(P(x|w_i)P(w_i))
+\end{equation}
+
+All these discriminant functions will have the maximum for the same $x$.
+
+Let's choose to use
+\begin{equation}
+		g_i(x) = P(x|w_i)P(w_i)
+\end{equation}
+\captionof{figure}{This is what you need to implement}
+
+and let's use the univariate gaussian distribution
+\begin{equation}
+	P(x|w_i) = \frac{1}{\sigma_i\sqrt{2\pi}}e^{-\frac{(x - \mu_i)^2}{2\sigma_i^2}}
+\end{equation}
+where $\mu_i$ is the mean for class $i$ and $\sigma_i$ is the standard deviation for class $i$.
+
+So, every class will have a mean value $\mu_i$ and a variance $\sigma_i^2$ estimated from the training data, giving every class a probability distribution $P(x|w_i)$. To classify a feature value $x$, choose the the class with the highest posterior probability $g_i(x) = P(x|w_i)P(w_i)$.
+\end{document}
