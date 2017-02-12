@@ -1,0 +1,189 @@
+\documentclass[11pt]{report}
+\usepackage{amsmath}
+\usepackage{gensymb}
+
+\begin{document}
+
+\section*{k-Means Clustering}
+k-Means Clustering corresponds to a Gaussian classifier with equal diagonal covariance matrix so the decision boundary will be perpendicular to the line connecting the cluster means after the last iteration.
+
+\begin{enumerate}
+	\item Pick k cluster centers using any number of methods, ie. first k points, k equally spaced points.
+	\item Assign each object to the closest cluster center using Euclidean distance.
+	\item Recompute the cluster center based on the new labels.
+	\item Repeat from 2 until number of changes reaches a threshold.
+\end{enumerate}
+
+\section*{k-Nearest Neighbor}
+$k$ should be odd and selected a priori. Essentially a method of voting which class an object belongs in based upon Euclidean distance from the sample.
+\begin{enumerate}
+	\item Out of $N$ training vectors, identify the $k$ nearest neighbors (measured by Euclidean distance) in the training set, irrespective of the class label
+	\item Out of these $k$ samples, identify the number of vectors $k_i$ that belong to class $\omega_i$, $i:1,2,...,M$ (if we have $M$ classes)
+	\item Assign $x_i$ to the class $\omega_i$ with the maximum number of $k_i$ samples.
+\end{enumerate}
+
+\section*{Gaussian classifier}
+Inherently quadratic. This means that it cannot deal with things like the banana shaped classes
+\begin{equation}
+	g_i(x) = -\frac{1}{2}(x-\mu_i)^T\Sigma_i^{-1}(x-\mu_i)-\frac{d}{2}\ln2\pi -\frac{1}{2}\ln|\Sigma_i|+\ln P(\omega_i)
+\end{equation}
+
+\subsection*{Case 1: $\Sigma_i = \sigma^2I$}
+The minimum distance classifier with spherical clusters and a decision boundary half way between the cluster means.
+
+\begin{equation}
+g_i(x) = -\frac{1}{2}\frac{||x-\mu||^2}{\sigma^2} + \ln P(\omega_i)
+\end{equation}
+
+\subsection*{Case 2: $\Sigma_i = \Sigma$}
+
+\begin{equation}
+g_i(x) = -\frac{1}{2}(x-\mu_i)^T\Sigma_i^{-1}(x-\mu_i) + \ln P(\omega_i)
+\end{equation}
+
+\subsection*{Case 3: $\Sigma_i = arbitrary$}
+
+\section*{Watershed}
+The general principle behind watershed is connecting edges by dilation
+
+\section*{Moments}
+\begin{figure}[!htb]
+	\begin{equation}
+		m_{p,q} = \sum_x{\sum_y{x^p y^q f(x,y)}}
+	\end{equation}
+	\caption{An ordinary or raw moment}
+\end{figure}
+
+
+Central moments are independent of position, but not scaling or rotation invariant.
+\begin{figure}
+\begin{equation}
+\mu_{p,q}=\sum_x{\sum_y{(x-\bar{x})^p (y-\bar{y})^q f(x,y)}}
+\end{equation}
+\caption{A position invariant, central moment}
+\end{figure}
+
+\begin{figure}[!htb]
+\begin{tabular}{ll}
+    Area & $m_{00}$\\
+	Center of mass & $m_{01}$ or $m_{10}$\\
+	Variance & $\mu_{02}$ or $\mu_{20}$\\
+	Covariance & $\mu_{11}$
+\end{tabular}
+\end{figure}
+
+\begin{figure}[!htb]
+	\begin{equation}
+		\theta = \frac{1}{2}\tan^{-1}{\frac{2 \mu_{11}}{\mu_{20} - \mu_{02}}}
+	\end{equation}
+	\caption{Object orientation derived from 2. order moments}
+\end{figure}
+
+For an object to exhibit a unique orientation $\mu_{02} \neq \mu_{20}$
+
+
+\section*{Hats}
+\begin{figure}[!htb]
+	\begin{equation}
+		f - (f \circ b) = f - ((f \ominus b) \oplus b)
+	\end{equation}
+	\caption{Top-hat, detects like objects on a dark background}
+\end{figure}
+
+\begin{figure}[!htb]
+	\begin{equation}
+		(f \bullet b) - f = ((f \oplus b) \ominus b) - f
+	\end{equation}
+	\caption{Bottom-hat, detects dark objects on a light background}
+\end{figure}
+
+\section*{Gray-level co-occurrence matrix}
+GLCM texture considers the relation between two pixels at a time, called the reference and the neighbour pixel. 
+
+First order texture measures are statistics calculated from the original image values, like variance, and do not consider pixel neighbour relationships.
+
+Second order measures consider the relationship between groups of two (usually neighbouring) pixels in the original image.
+
+Third and higher order textures (considering the relationships among three or more pixels) are theoretically possible but not commonly implemented due to calculation time and interpretation difficulty.
+
+\begin{figure}[!htb]
+	\begin{itemize}
+    	\item Reference and neighbor pixel offset
+		\item Strategy for handling borders
+		\item Number of gray-levels $G$
+		\item Window size
+    	\item Weighting function(s) if you want to generate a texture image
+	\end{itemize}
+	\caption{GLCM Parameters}
+\end{figure}
+
+\begin{figure}[!htb]
+	\begin{enumerate}
+		\item Initialize a GLCM matrix $G \times G$ in size
+		\item Remove noise, equalize histogram, requantize the image as desired
+		\item Move across image recording the relationship between the reference and neighbor pixel in the GLCM matrix.
+		\item Transpose and add the matrix to itself to make it symmetric
+		\item Normalize the GLCM by dividing each pixel by the sum of the counts converting the table from simple counts to something approximating a probability table
+	\end{enumerate}
+	\caption{GLCM Algorithm}
+\end{figure}
+
+Applying a weighting function to the GLCM generates a texture image. The weighting functions can be broken up into at least two main categories.
+
+\begin{figure}[!htb]
+	\begin{tabular}{lll}
+	Value & ASM (Uniformity), Entropy & Comparing values within a matrix\\
+	Position & IDM (Homogeneity), Inertia & Position within the matrix
+	\end{tabular}
+	\caption{Weighting functions}
+\end{figure}
+
+Dissimilarity and Contrast result in larger numbers for more contrasty windows. If weights decrease away from the diagonal, the result will be larger for windows with little contrast.
+
+Homogeneity weights values by the inverse of the Contrast weight, with weights decreasing exponentially away from the diagonal:
+
+\begin{equation}
+	IDM = \sum_{i=0}^{N-1}\sum_{j=0}^{N-1}\frac{P_{i,j}}{1+(i-j)^2}
+\end{equation}
+
+\begin{equation}
+	Entropy = -\sum_{i=0}^{N-1}\sum_{j=0}^{N-1}P_{i,j} * \ln(P_{i,j})
+\end{equation}
+
+ASM and Energy use each $P_{i,j}$ as a weight for itself. High values of ASM or Energy occur when the window is very orderly.
+
+\begin{equation}
+	ASM = -\sum_{i=0}^{N-1}\sum_{j=0}^{N-1}(P_{i,j})^2
+\end{equation}
+
+\section*{Hough}
+Hough is used to connect points into edges or lines. 
+
+\begin{figure}[!htb]
+	\begin{enumerate}
+		\item Establish an accumulator matrix of size $\rho$ by $\theta$ where $\rho$ is the range of possible magnitudes $\pm\sqrt{rows^2 + cols^2}$ and $\theta$ is all angles $\pm90\degree$
+		\item Clean up image: histogram equalize, etc.
+		\item Apply a gradient edge detector like Sobel to the image
+		\item Threshold into a binary image
+		\item Go through each pixel and if lit use each $\theta$ value in the range $\pm90\degree$ calculating $\rho = x \cos \theta + y \sin \theta$. For each $\rho, \theta$ pair increment the corresponding cell in the accumulator matrix.
+		\item Any local maxima in the accumulator matrix that crosses a predefined threshold is considered a line.
+	\end{enumerate}
+	\caption{Hough lines}
+\end{figure}
+
+In the randomized version we use pairs of randomly chosen pixel pairs and calculate $\theta$ directly rather than calculating all $\rho$ values for each pixel. This leads to many fewer increments in the matrix.
+
+\section*{Feature selection}
+Forward and backward selection involves optimizing the set of features through a systematic strategy of adding and removing of features.
+
+\section*{Region growing}
+\begin{enumerate}
+	\item Choose starting seeds
+	\item Decide on a predicate to determine if part of region
+	\item Continue as long as items can be added
+\end{enumerate}
+
+\section*{Principal Component Analysis}
+
+
+\end{document}
